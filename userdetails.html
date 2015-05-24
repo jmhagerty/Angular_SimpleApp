@@ -1,0 +1,37 @@
+<!-- looks at truthy -->
+<!-- <div ng-show="user"> -->
+<div id="userDetails">
+  <h2>{{user.name}}</h2>
+  <img ng-src="http://www.gravatar.com/avatar/{{user.gravatar_id}}" title="{{user.name}}" />
+
+  <br />Order:
+  <select ng-model="repoSortOrder">
+    <option value="+name">Name (asc)</option>
+    <option value="-stargazers_count">Stars (desc)</option>
+    <option value="+language">Language (asc)</option>
+  </select>
+</div>
+
+<!-- looks at truthy -->
+<!-- <table ng-hide="!user"> -->
+<!-- <table ng-show="user"> -->
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Stars</th>
+      <th>Language</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- <tr ng-repeat="repo in repos | orderBy:'stargazers_count'"> -->
+    <!-- <tr ng-repeat="repo in repos | orderBy:'-stargazers_count'"> -->
+    <tr ng-repeat="repo in repos | orderBy:repoSortOrder">
+      <td>{{repo.name}}</td>
+      <td>{{repo.stargazers_count | number}}</td>
+      <td>{{repo.language}}</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- <div>{{user | json}}</div> -->
