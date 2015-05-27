@@ -22,17 +22,18 @@
           $interval.cancel(countdownInterval);
           $scope.countdown = null; // removes from screen
         }
-        
+        // move to another page and invoke the associated controller
+        $location.path("/user/" + username);
         
       };
       
       $scope.username = "angular";
       $scope.countdown = 5;
-      startCountdown();
+      //startCountdown(); // un-comment to have countdown work
       
     }; // controller
     
-    module.controller("mainController", MainController);
+    module.controller("MainController", MainController);
     
   //]); // iife
 
